@@ -28,7 +28,8 @@ function getFullMangaList() {
       title: '',
       url: '@href'
     }]
-  )(function(err, results) {
+  )((err, results) => {
+    if (err) throw err;
     console.log(results);
   });
 }
@@ -58,7 +59,7 @@ function getChaptersFrom(url) {
       }])
     })((err, result) => {
       if (err) {
-        reject(Error(err));
+        reject(new Error(err));
       } else {
         resolve(result);
       }
@@ -79,7 +80,7 @@ function downloadChapters(chapter_list) {
     const getLength = new Promise((resolve, reject) => {
       x(url, '.main-body .btn-group:last-child .dropdown-menu li:last-child a')((err, result) => {
         if (err) {
-          reject(Error(err));
+          reject(new Error(err));
         } else {
           let regExp = /\(([^)]+)\)/g;
           let matches = regExp.exec(result);
@@ -96,12 +97,18 @@ function downloadChapters(chapter_list) {
       for (let i = 1; i < length; i++) {
         x(sliced_url + i, 'img#manga-page@src')((err, image) => {
           return new Promise((resolve, reject) => {
-            if (err) reject(Error(err));
+            if (err) reject(new Error(err));
 
             let download = new Download();
+            let filename = i + '.png';
+            if (i < 10) {
+              filename = '0'.concat(i, '.png');
+            }
+
             download.get(image);
-            download.dest('./downloads/' + chapter_list.title + ' - Chapter ' + chapter.name);
-            console.log(chapter_list.title + ' - Chapter ' + chapter.name + ' - Page ' + i)
+            download.rename(filename);
+            download.dest('./downloads/' + chapter_list.title + '/Chapter ' + chapter.name);
+            console.log(chapter_list.title + ' - Chapter ' + chapter.name + ' - Page ' + i);
             resolve(download.run());
           });
         });
