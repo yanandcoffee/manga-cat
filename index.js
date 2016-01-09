@@ -94,7 +94,7 @@ function downloadChapters(chapter_list) {
       // remove last digit from http://readms.com/r/platinum_end/001/3013/1
       let sliced_url = url.slice(0, -1);
 
-      for (let i = 1; i < length; i++) {
+      for (let i = 1; i <= length; i++) {
         x(sliced_url + i, 'img#manga-page@src')((err, image) => {
           return new Promise((resolve, reject) => {
             if (err) reject(new Error(err));
