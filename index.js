@@ -95,13 +95,15 @@ function downloadChapters(chapter_list) {
 
       for (let i = 1; i < length; i++) {
         x(sliced_url + i, 'img#manga-page@src')((err, image) => {
-          if (err) throw err;
+          return new Promise((resolve, reject) => {
+            if (err) reject(Error(err));
 
-          let download = new Download();
-          download.get(image);
-          download.dest('./downloads/' + chapter_list.title + ' - Chapter ' + chapter.name);
-          download.run();
-          console.log(chapter_list.title + ' - Chapter ' + chapter.name + ' - Page ' + i)
+            let download = new Download();
+            download.get(image);
+            download.dest('./downloads/' + chapter_list.title + ' - Chapter ' + chapter.name);
+            console.log(chapter_list.title + ' - Chapter ' + chapter.name + ' - Page ' + i)
+            resolve(download.run());
+          });
         });
       }
     });
