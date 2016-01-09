@@ -1,0 +1,31 @@
+{
+  "name": "manga-cat",
+  "version": "0.1.0",
+  "description": "scrapes and downloads manga from MangaStream, like a cat, Javascript-style",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yanandcoffee/manga-cat.git"
+  },
+  "keywords": [
+    "mangastream",
+    "manga"
+  ],
+  "author": "Yan Li (@yanandcoffee)",
+  "license": "ISC",
+  "preferGlobal": true,
+  "bin": {
+    "mangacat": "index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/yanandcoffee/manga-cat/issues"
+  },
+  "homepage": "https://github.com/yanandcoffee/manga-cat#readme",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "download": "^4.4.3",
+    "x-ray": "^2.0.3"
+  }
+}
