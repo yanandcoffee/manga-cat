@@ -34,10 +34,8 @@ For example: `manga-cat -r | grep -A 2 -i 'air gear'` will narrow down your sear
 2. `cd manga-cat && npm install`
 3. `npm link` and you can use start using `manga-cat` in terminal
 
-Now you can develop locally by changing the `index.js` script and run all manga-cat commands in your terminal.
+Now you can develop locally by changing the `index.js` script and run the script by typing `node index.js` instead of the `manga-cat` command.
+For example, `node index.js -d http://mangastream.com/manga/toriko` is equivalent to `manga-cat -d http://mangastream.com/manga/toriko`.
 
 ##Issues
-If you find any bugs, please report them in the [Issues](https://github.com/yanandcoffee/manga-cat/issues) section.
-
-
-
+If you find any bugs, please report them in the [Issues](https://github.com/yanandcoffee/manga-cat/issues) section. Feel free to contribute by forking and making a pull request.

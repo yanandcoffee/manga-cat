@@ -1,12 +1,8 @@
-### Node ###
 logs
 *.log
 npm-debug.log*
-pids
-*.pid
-*.seed
-.lock-wscript
 node_modules
 .npm
 .node_repl_history
 downloads
+.DS_Store
