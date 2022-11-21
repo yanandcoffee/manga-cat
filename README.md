@@ -3,14 +3,14 @@ Manga Cat is a Node.js CLI (command line interface) that scrapes and downloads m
 
 **Please support MangaStream for bringing high-quality manga and the authors who wrote the manga you're reading.**
 
-##Requirements
+## Requirements
 - Node.js **v4.0+** - http://nodejs.org/
 - npm **v2.0+** - https://www.npmjs.org/
 
-##Installation
+## Installation
 `npm install manga-cat -g`
 
-##Usage
+## Usage
 ```
 Usage: manga-cat [options]
 
@@ -29,7 +29,7 @@ You can also combine `-l` and `-r` commands with `grep` to search for certain ti
 
 For example: `manga-cat -r | grep -A 2 -i 'air gear'` will narrow down your search to returning the title, 'Air Gear' and displaying the next 2 lines after the match.
 
-##Development
+## Development
 1. `git clone https://github.com/yanandcoffee/manga-cat.git`
 2. `cd manga-cat && npm install`
 3. `npm link` and you can use start using `manga-cat` in terminal
